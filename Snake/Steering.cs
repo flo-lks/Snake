@@ -40,7 +40,7 @@ namespace Snake
             }
         }
 
-        public void UpdateSnakePosition(Snake snake, MapManager mapManager)
+        public bool UpdateSnakePosition(Snake snake, MapManager mapManager)
         {
             if (Console.KeyAvailable)
             {
@@ -59,10 +59,15 @@ namespace Snake
                 case Direction.Right: newHead.X++; break;
             }
 
+            //Check for wall collision or self collision
+            if (mapManager.grid[newHead.X, newHead.Y] == 3 || mapManager.grid[newHead.X, newHead.Y] == 1) return false;
+
             snake.snakeList.Insert(0, newHead);
             mapManager.UpdateCell(newHead.X, newHead.Y, 1);
             snake.snakeList.RemoveAt(snake.snakeList.Count - 1);
             mapManager.UpdateCell(oldHead.X, oldHead.Y, 0);
+
+            return true;
         }
     }
 }

@@ -11,7 +11,7 @@ namespace Snake
 {
     internal class Program
     {
-        private readonly static bool gameOver = false;
+        private static bool gameOver = false;
         static void Main(string[] args)
         {
             Console.CursorVisible = false;
@@ -22,14 +22,22 @@ namespace Snake
             Food food = new Food();
             MapManager mapManager = new MapManager();
 
+            /*
             Console.Write("Map width: ");
             int mapWidth = int.Parse(Console.ReadLine());
             Console.Write("Map height: ");
             int mapHeight = int.Parse(Console.ReadLine());
+            */
+            int mapWidth = 40;
+            int mapHeight = 20;
             Map map = new Map(mapWidth, mapHeight);
             mapManager.CreateMap(map);
 
-            snake.snakeList.Add(new Snake.Point { X = mapWidth / 2, Y = mapHeight / 2 });
+            // snake.snakeList.Add(new Snake.Point { X = mapWidth / 2, Y = mapHeight / 2 });
+            snake.snakeList.Add(new Snake.Point { X = 15, Y = 10 });
+            snake.snakeList.Add(new Snake.Point { X = 14, Y = 10 });
+            snake.snakeList.Add(new Snake.Point { X = 13, Y = 10 });
+            snake.snakeList.Add(new Snake.Point { X = 12, Y = 10 });
             steering.CurrentDirection = Steering.Direction.Right;
 
             Console.Clear();
@@ -48,13 +56,18 @@ namespace Snake
             //Game loop
             while (!gameOver)
             {
-                if(Console.KeyAvailable)
+                if (Console.KeyAvailable)
                 {
                     ConsoleKeyInfo keyInfo = Console.ReadKey(true);
                     steering.UpdateDirection(keyInfo);
                 }
 
-                steering.UpdateSnakePosition(snake, mapManager);
+                //Check for wall collision or self collision
+                if (!steering.UpdateSnakePosition(snake, mapManager))
+                {
+                    gameOver = true;
+                    break;
+                }
 
                 Console.SetCursorPosition(snake.snakeList[0].X, snake.snakeList[0].Y);
                 Console.WriteLine("0");
@@ -65,6 +78,7 @@ namespace Snake
 
                 Thread.Sleep(100);
             }
+            Console.Clear();
             Console.WriteLine("Game Over");
         }
     }
