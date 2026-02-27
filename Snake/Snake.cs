@@ -7,21 +7,19 @@ namespace Snake
 {
     public class Snake
     {
-        int X {  get; set; }
-        int Y { get; set; }
+        //The List stores the coordinates of the snake's body parts, where the first element is the head and the last element is the tail
 
-        public Snake(int x, int y)
+        public struct Point
         {
-            this.X = x;
-            this.Y = y;
+            public int X { get; set; }
+            public int Y { get; set; }
+            public Point(int x, int y)
+            {
+                this.X = x;
+                this.Y = y;
+            }
         }
 
-        public int[] getPos()
-        {
-            int[] pos = new int[2];
-            pos[0] = this.X;
-            pos[1] = this.Y;
-            return pos;
-        }
+        public List<Point> snakeList = new List<Point>();
     }
 }

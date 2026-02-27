@@ -1,9 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Snake.Steering">
-    <Position X="7.25" Y="1.5" Width="1.5" />
+    <Position X="9.25" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Enum Name="Snake.Steering.Direction" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Steering.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAACAAAIAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
       <FileName>Steering.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -16,16 +23,44 @@
   </Class>
   <Class Name="Snake.Snake">
     <Position X="4.25" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="Snake.Snake.Point" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Snake.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAYAA=</HashCode>
+      <HashCode>AAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Snake.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake.GameManager">
-    <Position X="2.5" Y="4.5" Width="1.5" />
+    <Position X="2.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAACAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>GameManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Snake.MapManager">
+    <Position X="0.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAAAAEAA=</HashCode>
+      <FileName>MapManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Snake.Food">
+    <Position X="6" Y="1.5" Width="1.5" />
+    <NestedTypes>
+      <Struct Name="Snake.Food.Point" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Food.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAqAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Food.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Font Name="Segoe UI" Size="9" />
