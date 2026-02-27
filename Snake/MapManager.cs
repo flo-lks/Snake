@@ -21,14 +21,14 @@ namespace Snake
             grid[x, y] = type;
         }
 
-        public void CreateMap(int width, int height)
+        public void CreateMap(Map map)
         {
-            grid = new int[width, height];
-            for (int i = 0; i < width; i++)
+            grid = new int[map.Width, map.Height];
+            for (int i = 0; i < map.Width; i++)
             {
-                for (int j = 0; j < height; j++)
+                for (int j = 0; j < map.Height; j++)
                 {
-                    if (i == 0 || i == width - 1 || j == 0 || j == height - 1)
+                    if (i == 0 || i == map.Width - 1 || j == 0 || j == map.Height - 1)
                         grid[i, j] = 3;
                     else
                         grid[i, j] = 0;

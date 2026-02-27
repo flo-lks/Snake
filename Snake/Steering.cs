@@ -55,8 +55,8 @@ namespace Snake
             {
                 case Direction.Up: newHead.Y--; break;
                 case Direction.Down: newHead.Y++; break;
-                case Direction.Left: newHead.X++; break;
-                case Direction.Right: newHead.X--; break;
+                case Direction.Left: newHead.X--; break;
+                case Direction.Right: newHead.X++; break;
             }
 
             snake.snakeList.Insert(0, newHead);

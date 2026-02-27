@@ -18,10 +18,6 @@ namespace Snake
             }
         }
         public Point foodPosition;
-        public Food(int x, int y)
-        {
-            this.foodPosition = new Point(x, y);
-        }
         public void SetFoodPosition(int x, int y, MapManager mapManager)
         {
             this.foodPosition.X = x;
