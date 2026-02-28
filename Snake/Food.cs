@@ -26,9 +26,28 @@ namespace Snake
             mapManager.UpdateCell(x, y, 2);
         }
         
-        public Point GetFoodPosition()
+        public Point GetFoodPosition() { return this.foodPosition; }
+
+        public void UpdateFoodPosition(MapManager mapManager)
         {
-            return this.foodPosition;
+            int rndX = new Random().Next(1, mapManager.grid.GetLength(0) - 1);
+            int rndY = new Random().Next(1, mapManager.grid.GetLength(1) - 1);
+            if (mapManager.grid[rndX, rndY] != 1 && mapManager.grid[rndX, rndY] != 2 && mapManager.grid[rndX, rndY] != 3)
+            {
+                SetFoodPosition(rndX, rndY, mapManager);
+            }
+        }
+
+        public void CheckSnakeFoodColision(MapManager mapManager, Snake snake)
+        {
+            var head = snake.snakeList[0];
+            if (mapManager.grid[head.X, head.Y] == 2)
+            {
+                snake.snakeList.Add(snake.snakeList[snake.snakeList.Count - 1]);
+                mapManager.grid[head.X, head.Y] = 0;
+
+                UpdateFoodPosition(mapManager);
+            }
         }
     }
 }

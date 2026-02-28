@@ -39,35 +39,5 @@ namespace Snake
                     break;
             }
         }
-
-        public bool UpdateSnakePosition(Snake snake, MapManager mapManager)
-        {
-            if (Console.KeyAvailable)
-            {
-                ConsoleKeyInfo keyInfo = Console.ReadKey(true);
-                UpdateDirection(keyInfo);
-            }
-
-            Snake.Point oldHead = snake.snakeList.First();
-            Snake.Point newHead = oldHead;
-
-            switch (CurrentDirection)
-            {
-                case Direction.Up: newHead.Y--; break;
-                case Direction.Down: newHead.Y++; break;
-                case Direction.Left: newHead.X--; break;
-                case Direction.Right: newHead.X++; break;
-            }
-
-            //Check for wall collision or self collision
-            if (mapManager.grid[newHead.X, newHead.Y] == 3 || mapManager.grid[newHead.X, newHead.Y] == 1) return false;
-
-            snake.snakeList.Insert(0, newHead);
-            mapManager.UpdateCell(newHead.X, newHead.Y, 1);
-            snake.snakeList.RemoveAt(snake.snakeList.Count - 1);
-            mapManager.UpdateCell(oldHead.X, oldHead.Y, 0);
-
-            return true;
-        }
     }
 }

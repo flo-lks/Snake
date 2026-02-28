@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
   <Class Name="Snake.Steering">
-    <Position X="9.25" Y="1.5" Width="1.5" />
+    <Position X="10.25" Y="2.25" Width="1.5" />
     <NestedTypes>
       <Enum Name="Snake.Steering.Direction" Collapsed="true">
         <TypeIdentifier>
@@ -10,19 +10,19 @@
       </Enum>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAACAAAIAAAAAAAAAAAAABAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAACAAAIAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Steering.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake.Map">
-    <Position X="2.5" Y="1.5" Width="1.5" />
+    <Position X="3.5" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Map.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake.Snake">
-    <Position X="4.25" Y="1.5" Width="1.5" />
+    <Position X="5.25" Y="2.25" Width="1.5" />
     <NestedTypes>
       <Struct Name="Snake.Snake.Point" Collapsed="true">
         <TypeIdentifier>
@@ -36,21 +36,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Snake.GameManager">
-    <Position X="0.5" Y="4" Width="1.5" />
+    <Position X="1.5" Y="4.75" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAEAAAAAgA=</HashCode>
       <FileName>GameManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake.MapManager">
-    <Position X="0.75" Y="1.5" Width="1.5" />
+    <Position X="1.75" Y="2.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAEAAAAAAEAA=</HashCode>
       <FileName>MapManager.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Snake.Food">
-    <Position X="6" Y="1.5" Width="1.5" />
+    <Position X="7" Y="2.25" Width="1.5" />
     <NestedTypes>
       <Struct Name="Snake.Food.Point" Collapsed="true">
         <TypeIdentifier>
@@ -59,7 +59,7 @@
       </Struct>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAqAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAIAAAAAAAAAAAqAAAAAAAAAAAAAAAAIAAAAAAA=</HashCode>
       <FileName>Food.cs</FileName>
     </TypeIdentifier>
   </Class>

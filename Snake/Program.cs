@@ -33,11 +33,11 @@ namespace Snake
             Map map = new Map(mapWidth, mapHeight);
             mapManager.CreateMap(map);
 
-            // snake.snakeList.Add(new Snake.Point { X = mapWidth / 2, Y = mapHeight / 2 });
-            snake.snakeList.Add(new Snake.Point { X = 15, Y = 10 });
+            snake.snakeList.Add(new Snake.Point { X = mapWidth / 2, Y = mapHeight / 2 });
+            /*snake.snakeList.Add(new Snake.Point { X = 15, Y = 10 });
             snake.snakeList.Add(new Snake.Point { X = 14, Y = 10 });
             snake.snakeList.Add(new Snake.Point { X = 13, Y = 10 });
-            snake.snakeList.Add(new Snake.Point { X = 12, Y = 10 });
+            snake.snakeList.Add(new Snake.Point { X = 12, Y = 10 });*/
             steering.CurrentDirection = Steering.Direction.Right;
 
             Console.Clear();
@@ -52,6 +52,10 @@ namespace Snake
                 Console.WriteLine();
             }
 
+            food.UpdateFoodPosition(mapManager);
+            Console.SetCursorPosition(food.GetFoodPosition().X, food.GetFoodPosition().Y);
+            Console.Write("*");
+
 
             //Game loop
             while (!gameOver)
@@ -62,11 +66,18 @@ namespace Snake
                     steering.UpdateDirection(keyInfo);
                 }
 
-                //Check for wall collision or self collision
-                if (!steering.UpdateSnakePosition(snake, mapManager))
+                gameManager.UpdateGame(snake, mapManager, steering);
+                if (gameManager.wallcollisionANDselfcollision)
                 {
                     gameOver = true;
                     break;
+                }
+                if (gameManager.foodcollision)
+                {
+                    food.UpdateFoodPosition(mapManager);
+                    Console.SetCursorPosition(food.GetFoodPosition().X, food.GetFoodPosition().Y);
+                    Console.Write("*");
+                    gameManager.foodcollision = false;
                 }
 
                 Console.SetCursorPosition(snake.snakeList[0].X, snake.snakeList[0].Y);
@@ -75,8 +86,8 @@ namespace Snake
                 Snake.Point tail = snake.snakeList.Last();
                 Console.SetCursorPosition(tail.X, tail.Y);
                 Console.WriteLine(" ");
-
-                Thread.Sleep(100);
+                if(steering.CurrentDirection == Steering.Direction.Up || steering.CurrentDirection == Steering.Direction.Down) Thread.Sleep(140);
+                else Thread.Sleep(100);
             }
             Console.Clear();
             Console.WriteLine("Game Over");
