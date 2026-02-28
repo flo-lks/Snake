@@ -30,12 +30,15 @@ namespace Snake
 
         public void UpdateFoodPosition(MapManager mapManager)
         {
+            NewFoodPosition:
             int rndX = new Random().Next(1, mapManager.grid.GetLength(0) - 1);
             int rndY = new Random().Next(1, mapManager.grid.GetLength(1) - 1);
             if (mapManager.grid[rndX, rndY] != 1 && mapManager.grid[rndX, rndY] != 2 && mapManager.grid[rndX, rndY] != 3)
             {
                 SetFoodPosition(rndX, rndY, mapManager);
+
             }
+            else goto NewFoodPosition;
         }
 
         public void CheckSnakeFoodColision(MapManager mapManager, Snake snake)

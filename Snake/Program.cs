@@ -22,22 +22,18 @@ namespace Snake
             Food food = new Food();
             MapManager mapManager = new MapManager();
 
-            /*
             Console.Write("Map width: ");
             int mapWidth = int.Parse(Console.ReadLine());
             Console.Write("Map height: ");
             int mapHeight = int.Parse(Console.ReadLine());
-            */
-            int mapWidth = 40;
-            int mapHeight = 20;
-            Map map = new Map(mapWidth, mapHeight);
+            Map map = new Map(mapWidth + 2, mapHeight + 2);
             mapManager.CreateMap(map);
 
+            int mapArea = mapWidth * mapHeight;
+            int circumference = 2 * (mapWidth + mapHeight);
+            int playableArea = mapArea - circumference;
+
             snake.snakeList.Add(new Snake.Point { X = mapWidth / 2, Y = mapHeight / 2 });
-            /*snake.snakeList.Add(new Snake.Point { X = 15, Y = 10 });
-            snake.snakeList.Add(new Snake.Point { X = 14, Y = 10 });
-            snake.snakeList.Add(new Snake.Point { X = 13, Y = 10 });
-            snake.snakeList.Add(new Snake.Point { X = 12, Y = 10 });*/
             steering.CurrentDirection = Steering.Direction.Right;
 
             Console.Clear();
@@ -86,8 +82,15 @@ namespace Snake
                 Snake.Point tail = snake.snakeList.Last();
                 Console.SetCursorPosition(tail.X, tail.Y);
                 Console.WriteLine(" ");
-                if(steering.CurrentDirection == Steering.Direction.Up || steering.CurrentDirection == Steering.Direction.Down) Thread.Sleep(140);
-                else Thread.Sleep(100);
+                if(steering.CurrentDirection == Steering.Direction.Up || steering.CurrentDirection == Steering.Direction.Down) Thread.Sleep(200);
+                else Thread.Sleep(150);
+
+                if(snake.snakeList.Count == playableArea)
+                {
+                    Console.Clear();
+                    Console.WriteLine("You win!");
+                    break;
+                }
             }
             Console.Clear();
             Console.WriteLine("Game Over");

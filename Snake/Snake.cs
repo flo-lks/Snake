@@ -8,7 +8,6 @@ namespace Snake
     public class Snake
     {
         //The List stores the coordinates of the snake's body parts, where the first element is the head and the last element is the tail
-
         public struct Point
         {
             public int X { get; set; }
